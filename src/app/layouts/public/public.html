@@ -1,2 +1,5 @@
-<router-outlet/>
-
+<app-public-header *ngIf="!hideHeaderFooter"></app-public-header>
+<div>
+    <router-outlet></router-outlet>
+</div>
+<app-public-footer *ngIf="!hideHeaderFooter"></app-public-footer>

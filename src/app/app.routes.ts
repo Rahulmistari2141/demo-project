@@ -14,6 +14,7 @@ export const routes: Routes = [
                 path:'',
                 redirectTo: 'login',
                 pathMatch: 'full',
+                data: { hideLayout: true }
             },
             {
                 path: 'login',
@@ -23,9 +24,17 @@ export const routes: Routes = [
                 path: 'forgot-password',
                 loadComponent: () => import('./features/forgot-password/forgot-password').then(m => m.ForgotPassword),
             },
-             {
+            {
                 path: 'public-home',
                 loadComponent: () => import('./features/public-home/public-home').then(m => m.PublicHome),
+            },
+            {
+                path: 'public-header',
+                loadComponent: () => import('./features/public-header/public-header').then(m => m.PublicHeader),
+            },
+            {
+                path: 'public-footer',
+                loadComponent: () => import('./features/public-footer/public-footer').then(m => m.PublicFooter),
             },
         ]
     },
