@@ -31,6 +31,11 @@ export class Login {
         // debugger
         console.log(err.error.message);
         alert(err.error.message);
+        //  Swal.fire({
+        //                                 text: "Something went wrong! Try again. Please try again.",
+        //                                 icon: "warning",
+        //                                 confirmButtonText: "Ok"
+        //                         });
       }
     });
   }
