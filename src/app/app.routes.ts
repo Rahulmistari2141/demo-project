@@ -52,6 +52,7 @@ export const routes: Routes = [
             {
                 path: 'dashboard',
                 loadComponent: () => import('./pages/dashbaord/dashbaord').then(m => m.Dashbaord),
+                // canActivate: [authGuardGuard],
             },
 
             {
