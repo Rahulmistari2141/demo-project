@@ -56,7 +56,7 @@ export const routes: Routes = [
             },
 
             {
-                path: 'home',
+                path: 'batchuser',
                 loadComponent: () => import('./pages/home/home').then(m => m.Home),
             },
 
