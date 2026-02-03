@@ -2,7 +2,6 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
 export const authGuardGuard: CanActivateFn = (route, state) => {
-  debugger;
   const router = inject(Router);
   const localData = localStorage.getItem('batchUser');
   if(localData != null){
