@@ -1,43 +1,111 @@
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
-<p>report works!</p>
+<div class="card plain-card">
+    <div class="card-header bg-white p-2">
+        <h6 class="card-title mb-0 fw-semibold">Report</h6>
+    </div>
+    <div class="card-body p-2">
+        <div class="row ">
+            <div class="col-sm-3 border-end">
+                <div class="mb-2">
+                    <input type="text" class="form-control w-100" [(ngModel)]="reportObj.vendorName"
+                        placeholder="Report Name">
+                </div>
+                <div class="mb-2">
+                    <input type="text" class="form-control" [(ngModel)]="reportObj.contactNo"
+                        placeholder="Report Title">
+                </div>
+                <div class="mb-2">
+                    <input type="text" class="form-control" [(ngModel)]="reportObj.emailId" placeholder="Report Body">
+                </div>
 
+                <!-- <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="Search user..." [value]="searchTerm()"
+                        (input)="searchTerm.set($any($event.target).value)">
+
+                    <ul>
+                        @for (report of filteredReports(); track $index) {
+                          <li>{{ report.name }}</li>
+                        }
+                    </ul>
+                </div> -->
+
+                <!-- <div class="mb-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>select Option</option>
+                        @for (report of reportsList; track $index){
+                        <option>{{report.vendorName}}</option>
+                        }
+                    </select>
+                </div> -->
+                <div class="mb-2 text-end">
+                    <!-- <button type="button" class="btn btn-primary" (click)="onSave()">
+                         {{ isEditMode ? 'Update' : 'Save' }}
+                    </button> -->
+                    @if (!isEditMode) {
+                    <button type="button" class="btn btn-primary" (click)="onSave()">
+                        Save
+                    </button>
+                    } @else {
+                    <button type="button" class="btn btn-primary" (click)="onUpdate()">
+                        Update
+                    </button>
+                    }
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0 dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Name</th>
+                                <th>Contact No.</th>
+                                <th>Email Id</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- {{reportsList | json}} -->
+                            <!-- <tr *ngFor="let report of reportsList">
+                                <td>{{report.name}}</td>
+                                <td>{{report.email}}</td>
+                                <td>{{report.phone}}</td>
+                                <td>{{report.website}}</td>
+                                <td>{{report.company.name}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr> -->
+
+                            @for (report of reportsList; track $index) {
+                                <tr>
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{report.vendorName}}</td>
+                                    <td>{{report.contactNo}}</td>
+                                    <td>{{report.emailId}}</td>
+                                    <td>
+                                        <div class="d-flex gap-2 align-items-center">
+                                            <button type="button" class="btn btn-sm btn-primary"
+                                                (click)="edit(report.vendorId)">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-sm btn-danger"
+                                                (click)="delete(report.vendorId)">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
