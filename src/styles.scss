@@ -41,3 +41,21 @@ body { margin: 0; font-family: poppins, "Helvetica Neue", sans-serif; }
     border: none;
     box-shadow: none;
 }
+
+// .ngx-pagination {
+//    text-align: end!important;
+// }
+
+.ngx-pagination .current {
+    padding: 5px 12px !important;
+    background: #2f94ec!important;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+    background: #d4e7f8 !important;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

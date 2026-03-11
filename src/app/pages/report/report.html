@@ -10,11 +10,11 @@
                         placeholder="Report Name">
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" [(ngModel)]="reportObj.contactNo"
-                        placeholder="Report Title">
+                    <input type="text" class="form-control" maxlength="10" [(ngModel)]="reportObj.contactNo"
+                        placeholder="Report Mobile No.">
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" [(ngModel)]="reportObj.emailId" placeholder="Report Body">
+                    <input type="text" class="form-control" [(ngModel)]="reportObj.emailId" placeholder="Report Email ID">
                 </div>
 
                 <!-- <div class="mb-2">
@@ -53,7 +53,7 @@
             </div>
             <div class="col-sm-9">
                 <div class="table-responsive">
-                    <table class="table table-bordered mb-0 dashboard-table">
+                    <table class="table table-bordered mb-2 dashboard-table">
                         <thead>
                             <tr>
                                 <th>Sr. No.</th>
@@ -81,29 +81,32 @@
                                 </td>
                             </tr> -->
 
-                            @for (report of reportsList; track $index) {
-                                <tr>
-                                    <td>{{$index + 1}}</td>
-                                    <td>{{report.vendorName}}</td>
-                                    <td>{{report.contactNo}}</td>
-                                    <td>{{report.emailId}}</td>
-                                    <td>
-                                        <div class="d-flex gap-2 align-items-center">
-                                            <button type="button" class="btn btn-sm btn-primary"
-                                                (click)="edit(report.vendorId)">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </button>
 
-                                            <button type="button" class="btn btn-sm btn-danger"
-                                                (click)="delete(report.vendorId)">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                            @for (report of reportsList | paginate: { itemsPerPage: itemsPerPage, currentPage:
+                            pageNumber }; track $index) {
+                            <tr>
+                                <td>{{$index + 1}}</td>
+                                <td>{{report.vendorName}}</td>
+                                <td>{{report.contactNo}}</td>
+                                <td>{{report.emailId}}</td>
+                                <td>
+                                    <div class="d-flex gap-2 align-items-center">
+                                        <button type="button" class="btn btn-sm btn-primary"
+                                            (click)="edit(report.vendorId)">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-sm btn-danger"
+                                            (click)="delete(report.vendorId)">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
+                    <pagination-controls (pageChange)="pageNumber = $event" class="text-end"></pagination-controls>
                 </div>
             </div>
         </div>
