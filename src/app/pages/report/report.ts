@@ -104,7 +104,7 @@ export class Report implements OnInit {
   edit(vendorId: number) {
     this.http.get('https://api.freeprojectapi.com/api/BusBooking/GetBusVendorsById?id=' + vendorId).subscribe({
       next: (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.reportObj = res;
         this.isEditMode = true; // change button text
       },
