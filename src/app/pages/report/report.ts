@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class Report implements OnInit {
   reportsList: any[] = [];
   isEditMode: boolean = false;
+
   // Source signals
   // reportsList = signal<any[]>([]);
   // searchTerm = signal('');
@@ -45,7 +46,6 @@ export class Report implements OnInit {
   }
 
   getReports() {
-    // this.http.get('https://jsonplaceholder.typicode.com/users').subscribe({
     this.http.get('https://api.freeprojectapi.com/api/BusBooking/GetBusVendors').subscribe({
       next: (res: any) => {
         console.log(res);
@@ -57,7 +57,6 @@ export class Report implements OnInit {
       }
     })
   }
-
 
   // onSave() {
   //   this.http.post('https://jsonplaceholder.typicode.com/posts', this.reportObj).subscribe({
@@ -140,6 +139,5 @@ export class Report implements OnInit {
       }
     });
   }
-
 }
 
